@@ -7,13 +7,14 @@ export class PlayerWon extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('bgImage','assets/3690.jpg')
+        this.load.image('bgImage','assets/imges/3690.jpg')
     }
 
     create() {
         this.add.image(400,300,'bgImage');
           // Display a "You Won!" message at the center
         const title = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 5, "You Won!", {
+            fontFamily: 'Roboto',
             fontSize: '48px',
             fill    : '#fff'
         })
@@ -21,6 +22,7 @@ export class PlayerWon extends Phaser.Scene {
 
           // Display a message below the title
         const message = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 3, "Congratulations!", {
+            fontFamily: 'Roboto',
             fontSize: '32px',
             fill    : '#fff'
         })
@@ -28,6 +30,7 @@ export class PlayerWon extends Phaser.Scene {
 
           // Create a button to go to the Main Menu
         const mainMenuButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Back to Main Menu", {
+            fontFamily: 'Roboto',
             fontSize: '32px',
             fontStyle:'bold',
             fill    : '#0f0'
