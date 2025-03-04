@@ -16,7 +16,8 @@ export class PlayerWon extends Phaser.Scene {
         const title = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 5, "You Won!", {
             fontFamily: 'Roboto',
             fontSize: '48px',
-            fill    : '#fff'
+            fill    : '#fff',
+            fontFamily: "lightgreen"
         })
             .setOrigin(0.5, 0.5);  // Center the title
 
@@ -24,7 +25,8 @@ export class PlayerWon extends Phaser.Scene {
         const message = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 3, "Congratulations!", {
             fontFamily: 'Roboto',
             fontSize: '32px',
-            fill    : '#fff'
+            fill    : '#fff',
+            fontFamily: "lightgreen"
         })
             .setOrigin(0.5, 0.5);
 
@@ -33,7 +35,8 @@ export class PlayerWon extends Phaser.Scene {
             fontFamily: 'Roboto',
             fontSize: '32px',
             fontStyle:'bold',
-            fill    : '#0f0'
+            fill    : '#0f0',
+            fontFamily: "lightgreen"
         })
             .setOrigin(0.5, 0.5)
             .setInteractive()

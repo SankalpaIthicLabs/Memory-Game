@@ -1,4 +1,4 @@
-import { config } from './config';
+import { config } from './config.js';
 import './style.css';
 import Phaser, { Game } from 'phaser';
 
@@ -20,7 +20,7 @@ export class GamePlayScene extends Phaser.Scene {
 
   create() {
 
-    this.add.image(400, 300, 'bgImage');
+    this.add.image(320, 180, 'bgImage');
     this.InforPanel();
 
 
@@ -39,47 +39,50 @@ export class GamePlayScene extends Phaser.Scene {
 
   InforPanel() {
 
-    let infoIcon = this.add.image(100, 25, 'infoIcon')  // Adjust position as needed
+    let infoIcon = this.add.image(60, 20, 'infoIcon')  // Adjust position as needed
       .setOrigin(1, 0)
       .setScale(0.08)
       .setInteractive();
 
                                                        // Create the semi-transparent popup background
-    let popupBg = this.add.image(400, 300, 'panelBg')  // Dark rectangle
+    let popupBg = this.add.image(320, 180, 'panelBg')  // Dark rectangle
       .setScale(0.5)
       .setOrigin(0.5)
       .setVisible(true);  // Initially hidden
 
 
-    let titleText = this.add.text(400, 200, "How to Play", {
+    let titleText = this.add.text(320,65, "How to Play", {
       fontFamily: 'Roboto',
       fontSize  : '28px',
       fontStyle : 'bold',
       color     : '#ffffff',
-      align     : 'center'
+      align     : 'center',
+      fontFamily: "lightgreen"
     }).setOrigin(0.5).setVisible(true);
 
 
       // Add text inside the popup
-    let popupText = this.add.text(400, 325, "- Click cards to reveal images\n\n- Match all the pairs to win\n\n- If you find incorrect pairs the game ends\n\n", {
+    let popupText = this.add.text(320, 190, "- Click cards to reveal images\n\n- Match all the pairs to win\n\n- If you find incorrect pairs the game ends\n\n", {
       fontFamily: 'Roboto',
       fontSize  : '20px',
       color     : '#ffffff',
       align     : 'left',
-      wordWrap  : { width: 450 }
+      wordWrap  : { width: 450 },
+      fontFamily: "lightgreen"
     }).setOrigin(0.5).setVisible(true);
 
 
-    let finleText = this.add.text(400, 400, "Good luck!", {
+    let finleText = this.add.text(320,290, "Good luck!", {
       fontFamily: 'Roboto',
       fontSize  : '28px',
       fontStyle : 'bold',
       color     : '#ffffff',
-      align     : 'center'
+      align     : 'center',
+      fontFamily: "lightgreen"
     }).setOrigin(0.5).setVisible(true);
 
       // Close button
-    let closeButton = this.add.image(625, 165, "closeIcon")
+    let closeButton = this.add.image(545, 50, "closeIcon")
       .setOrigin(1, 0)
       .setScale(0.06)
       .setVisible(true)
@@ -115,10 +118,12 @@ export class GamePlayScene extends Phaser.Scene {
   cardGenerator() {
     let cols     = 3;
     let rows     = 2;
-    let startX   = 200;
-    let startY   = 175;
-    let spacingX = 200;
-    let spacingY = 275;
+    let startX   = 150;  // Adjusted for smaller screen
+    let startY   = 100;
+    let spacingX = 160;
+    let spacingY = 150;
+
+    
 
     let matchedPairs = 0;
     let maxPairs     = 3;
@@ -134,7 +139,7 @@ export class GamePlayScene extends Phaser.Scene {
     let selectedImages = Phaser.Utils.Array.Shuffle(characterImages).slice(0, 3);
 
       //? Text field to shgow the player proggress
-    let progressText = this.add.text(750, 25, `0 / ${maxPairs}`, { fontSize: '24px', fill: '#fff', fontFamily: 'Roboto', fontStyle: 'bold' }).setOrigin(1, 0);
+    let progressText = this.add.text(600, 20, `0 / ${maxPairs}`, { fontSize: '24px', fill: '#fff',fontFamily: "lightgreen", fontStyle: 'bold' }).setOrigin(1, 0);
 
                                                              //? Create pairs
     let imagePairs = selectedImages.concat(selectedImages);  // 3 selected images, each duplicated
@@ -156,12 +161,12 @@ export class GamePlayScene extends Phaser.Scene {
       //? Loop to generate cards in the grid
     positions.forEach(({ x, y }) => {
       let cardBackImage = this.addImageToScene(startX + x * spacingX, startY + y * spacingY, 'backImage')
-        .setDisplaySize(150, 250)
+        .setDisplaySize(90, 125)
         .setOrigin(0.5, 0.5)
         .setInteractive();
 
       let characterImage = this.addImageToScene(cardBackImage.x, cardBackImage.y, imagePairs[index])
-        .setDisplaySize(150, 250)
+        .setDisplaySize(90, 125)
         .setOrigin(0.5, 0.5);
 
       index++;

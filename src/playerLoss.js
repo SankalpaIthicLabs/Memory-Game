@@ -16,24 +16,30 @@ export class PlayerLost extends Phaser.Scene {
         const title = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 5, "You Lost!", {
             fontFamily: 'Roboto',
             fontSize: '48px',
-            fill    : '#fff'
+            fill    : '#fff',
+            fontFamily: "lightgreen"
+
         })
             .setOrigin(0.5, 0.5);  // Center the title
 
           // Display a message below the title
-        const message = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 3, "Better Luck Next Time!", {
+        const message = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2.5, "Better Luck Next Time!", {
             fontFamily: 'Roboto',
             fontSize: '32px',
-            fill    : '#fff'
+            fill    : '#fff',
+            fontFamily: "lightgreen"
+
         })
             .setOrigin(0.5, 0.5);
 
           // Create a button to restart the game
-        const restartButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Restart", {
+        const restartButton = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 1.5, "Restart", {
             fontFamily: 'Roboto',
             fontSize: '32px',
             fontStyle:'bold',
-            fill    : '#f00'
+            fill    : '#f00',
+            fontFamily: "lightgreen"
+
         })
             .setOrigin(0.5, 0.5)
             .setInteractive()
