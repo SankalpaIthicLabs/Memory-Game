@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: "development", 
+  mode: "production", 
   entry: "./src/config.js", 
   output: {
     filename: "bundle.min.js",
@@ -17,7 +17,7 @@ export default {
   },
   devServer: {
     static: "./dist",
-    port: 8080,
+    port: 8081,
     open: true,
   },
   optimization: {
@@ -55,7 +55,7 @@ export default {
       template: "./index.html", 
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "assets", to: "assets" }], 
+      patterns: [{ from: "./src/assets", to: "assets" }], 
     }),
   ],
 };
